@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TR-Gaussians: high-fidelity real-time rendering of planar transmission and reflection with 3D Gaussian Splatting.">
+    <title>TR-Gaussians</title>
+    <link rel="stylesheet" href="assets/css/site.css">
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="project-title">
+        <div class="container hero__content">
+          <h1 id="project-title">TR-Gaussians: High-fidelity Real-time Rendering of Planar Transmission and Reflection with 3D Gaussian Splatting</h1>
+          <p class="subtitle">High-fidelity, real-time novel-view synthesis for indoor scenes with transparent glass panes.</p>
+          <p class="authors">Yong Liu &middot; Keyang Ye &middot; <a href="https://tianjiashao.com/" target="_blank" rel="noopener">Tianjia Shao</a> &middot; <a href="http://kunzhou.net/" target="_blank" rel="noopener">Kun Zhou</a></p>
+          <p class="affiliations">State Key Lab of CAD &amp; CG, Zhejiang University</p>
+          <div class="links" aria-label="Project links">
+            <a class="button" href="assets/paper/TR_Gaussians.pdf" target="_blank" rel="noopener">Paper</a>
+            <a class="button" href="https://github.com/CJAPPLE5/TR_GAUSSIANS">Code &amp; Data</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="showcase" aria-label="Featured results">
+        <div class="container">
+          <div class="teaser-carousel" data-teaser-carousel>
+            <button class="carousel-button" type="button" data-carousel-previous aria-label="Previous teaser">&#8592;</button>
+            <div class="teaser-viewport"><div class="teaser-track" data-carousel-track>
+              <figure><video autoplay muted loop playsinline preload="metadata"><source src="assets/videos/bookcase.mp4" type="video/mp4"></video><figcaption>Bookcase1</figcaption></figure>
+              <figure><video autoplay muted loop playsinline preload="metadata"><source src="assets/videos/gundam.mp4" type="video/mp4"></video><figcaption>Gundam</figcaption></figure>
+              <figure><video autoplay muted loop playsinline preload="metadata"><source src="assets/videos/home.mp4" type="video/mp4"></video><figcaption>Loft</figcaption></figure>
+              <figure><video autoplay muted loop playsinline preload="metadata"><source src="assets/videos/paint.mp4" type="video/mp4"></video><figcaption>Ship</figcaption></figure>
+              <figure><video autoplay muted loop playsinline preload="metadata"><source src="assets/videos/porcelain.mp4" type="video/mp4"></video><figcaption>Porcelain</figcaption></figure>
+            </div></div>
+            <button class="carousel-button" type="button" data-carousel-next aria-label="Next teaser">&#8594;</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="abstract">
+        <div class="container prose">
+          <h2>Abstract</h2>
+          <p>We propose Transmission-Reflection Gaussians (TR-Gaussians), a novel 3D-Gaussian-based representation for high-fidelity rendering of planar transmission and reflection, which are ubiquitous in indoor scenes. Our method combines 3D Gaussians with learnable reflection planes that explicitly model glass panes with view-dependent reflectance strengths. Real scenes and transmission components are modeled by 3D Gaussians, while reflection components are modeled by mirrored Gaussians with respect to the reflection plane. The components are blended with a Fresnel-based, view-dependent weighting scheme, enabling faithful synthesis of complex appearance effects under varying viewpoints. To effectively optimize TR-Gaussians, we develop a multi-stage optimization framework with color and geometry constraints and an opacity perturbation mechanism. Experiments demonstrate high-fidelity real-time novel-view synthesis and improvements over prior work in scenes with planar transmission and reflection.</p>
+        </div>
+      </section>
+
+      <section class="section band" id="method">
+        <div class="container prose">
+          <h2>Method</h2>
+          <p>TR-Gaussians represent the scene with primary Gaussians, a learnable reflection plane, and glass Gaussians that identify reflective regions. A Fresnel reflectance model produces a view-dependent reflection-strength map, while reflected primary Gaussians render the reflected content. Blending the transmission and reflection images yields the final view.</p>
+          <figure>
+            <img class="pipeline" src="assets/images/pipeline-cropped.png" alt="TR-Gaussians rendering pipeline">
+            <figcaption>Our two-pass rendering pipeline. Primary Gaussians render transmission, while their mirror-transformed counterparts render reflection. A learnable reflection plane and Fresnel-based weighting combine both components.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section" id="results">
+        <div class="container prose">
+          <h2>Qualitative Results</h2>
+          <p>Drag any vertical divider to allocate more of the view to a method. Each comparison uses the same test view for all methods.</p>
+          <div class="comparison-set" data-comparison-set></div>
+        </div>
+      </section>
+
+      <section class="section band" id="supplementary-video">
+        <div class="container prose">
+          <h2>Supplementary Video</h2>
+          <video class="supplementary-video" controls playsinline preload="metadata">
+            <source src="assets/videos/supplementary-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
+      <section class="section" id="bibtex">
+        <div class="container prose">
+          <h2>BibTeX</h2>
+          <pre><code>@article{Liu2026TRGaussians,
+  title   = {TR-Gaussians: High-Fidelity Real-Time Rendering of Planar Transmission and Reflection With 3D Gaussian Splatting},
+  author  = {Liu, Yong and Ye, Keyang and Shao, Tianjia and Zhou, Kun},
+  journal = {IEEE Transactions on Visualization and Computer Graphics},
+  volume  = {32},
+  number  = {7},
+  pages   = {5882--5894},
+  year    = {2026},
+  doi     = {10.1109/TVCG.2026.3675416}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">TR-Gaussians &middot; Code and dataset will be released here.</div>
+    </footer>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
